@@ -1,26 +1,97 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ----------------------------------
+   Global Font
+---------------------------------- */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+	--font-sans: var(--font-transducer-local);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@layer base {
+	html {
+		@apply scroll-smooth font-sans antialiased;
+	}
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ----------------------------------
+   Base Color Palette (Static Colors)
+---------------------------------- */
+@theme {
+	--color-dark: #2c2c2c;
+	--color-light: #e4e4e4;
+	--color-teal: #a8dadc;
+	--color-pink: #ffc1cc;
+	--color-purple: #b39cd0;
+
+	/* Buttons */
+	--color-btn-primary: var(--color-purple);
+	--color-btn-primary-text: var(--color-dark);
+
+	--color-btn-secondary: var(--color-teal);
+	--color-btn-secondary-text: var(--color-dark);
+
+	--color-btn-outline: transparent;
+	--color-btn-outline-border: var(--color-purple);
+	--color-btn-outline-text: var(--color-purple);
+
+	--color-btn-ghost-text: var(--color-pink);
+}
+
+/* ----------------------------------
+   Tailwind 4 Dynamic Theme Colors
+   (Used for bg-primary, text-primary)
+---------------------------------- */
+@theme {
+	--color-primary: var(--primary);
+	--color-secondary: var(--secondary);
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+}
+
+/* ----------------------------------
+   Light Mode (Default)
+---------------------------------- */
+:root {
+	/* YOUR background/text vars */
+	--bg-primary: #ffffff;
+	--bg-secondary: var(--color-light);
+
+	--text-primary: #000000;
+	--text-secondary: var(--color-dark);
+
+	/* NEW tailwind-theme vars */
+	--primary: #000000; /* text-primary */
+	--secondary: #3a3a3a; /* text-secondary */
+	--background: #ffffff; /* bg-background */
+	--foreground: #000000; /* text-foreground */
+}
+
+/* ----------------------------------
+   Dark Mode
+---------------------------------- */
+.dark {
+	/* Your existing UI vars */
+	--bg-primary: var(--color-dark);
+	--bg-secondary: #3a3a3a;
+
+	--text-primary: #ffffff;
+	--text-secondary: var(--color-light);
+
+	/* Button overrides */
+	--color-btn-primary-text: var(--color-light);
+	--color-btn-secondary-text: var(--color-light);
+	--color-btn-outline-text: var(--color-light);
+	--color-btn-outline-border: var(--color-light);
+	--color-btn-ghost-text: var(--color-light);
+
+	/* Tailwind theme vars */
+	--primary: #ffffff;
+	--secondary: #e4e4e4;
+	--background: #0d0d0d;
+	--foreground: #e4e4e4;
+}
+
+button:active {
+	transform: scale(0.95);
+	transition: all 300ms ease-in-out;
 }
