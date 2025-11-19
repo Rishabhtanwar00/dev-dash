@@ -1,6 +1,7 @@
 'use client';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const LoginPage = () => {
@@ -39,7 +40,17 @@ const LoginPage = () => {
 						value={formData.password}
 						onChange={handleChange}
 					/>
-					<Button type='submit'>Login</Button>
+					<div className='flex flex-col gap-2'>
+						<Button type='submit' className='mt-5'>
+							Login
+						</Button>
+						<Link
+							href='/register'
+							className='text-[12px] font-poppins text-right underline cursor-pointer'
+						>
+							Create new account
+						</Link>
+					</div>
 				</form>
 			</div>
 		</div>

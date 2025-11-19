@@ -20,11 +20,11 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
 			</div>
 			<div
 				className={`flex-1 ${
-					showSidebar ? 'ml-[250px]' : 'ml-0'
+					showSidebar ? 'ml-20 md:ml-[250px]' : 'ml-0'
 				} transition-all duration-300`}
 			>
 				<Navbar />
-				<div className='p-5'>{children}</div>
+				<div className='p-5 font-poppins'>{children}</div>
 			</div>
 		</div>
 	);

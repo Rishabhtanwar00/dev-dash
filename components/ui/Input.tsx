@@ -20,17 +20,18 @@ const Input = ({
 	onChange,
 }: InputProps) => {
 	return (
-		<div>
-			<label htmlFor={id} className="text-[12px]">{label}</label>
+		<div className='flex flex-col gap-2'>
+			<label htmlFor={id} className='text-[12px]'>
+				{label}
+			</label>
 			<input
 				id={id}
 				name={id}
 				type={type}
 				placeholder={placeholder}
 				value={value}
-				className={`w-full text-sm border-2 px-3 py-1 placeholder:text-xs placeholder:text-secondary/60 bg-background text-primary ${className}`}
+				className={`w-full text-sm border-2 px-3 py-1.5  placeholder:text-secondary/70 bg-background text-primary font-poppins focus:outline-none focus:shadow focus:shadow-purple transition ${className} `}
 				onChange={onChange}
-				
 			/>
 		</div>
 	);

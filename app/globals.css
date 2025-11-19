@@ -1,97 +1,89 @@
 @import 'tailwindcss';
 
-/* ----------------------------------
-   Global Font
----------------------------------- */
 @theme inline {
-	--font-sans: var(--font-transducer-local);
+	--font-transducer: var(--font-transducer-local);
+	--font-poppins: var(--font-poppins-local);
 }
-
 @layer base {
 	html {
-		@apply scroll-smooth font-sans antialiased;
+		@apply scroll-smooth font-poppins antialiased;
 	}
 }
 
-/* ----------------------------------
-   Base Color Palette (Static Colors)
----------------------------------- */
 @theme {
-	--color-dark: #2c2c2c;
-	--color-light: #e4e4e4;
-	--color-teal: #a8dadc;
-	--color-pink: #ffc1cc;
-	--color-purple: #b39cd0;
+	/* Light Theme Colors (Default) */
+	--color-background: #ffffff;
+	--color-surface: #f9fafb;
+	--color-border: #e5e7eb;
+	--color-text: #475569;
+	--color-primary: #9810fa;
+	--color-secondary: #e60076;
 
-	/* Buttons */
-	--color-btn-primary: var(--color-purple);
-	--color-btn-primary-text: var(--color-dark);
+	/* Additional Light Theme Colors */
+	--color-text-bright: #0f172b;
+	--color-text-muted: #94a3b8;
+	--color-surface-hover: #f3f4f6;
 
-	--color-btn-secondary: var(--color-teal);
-	--color-btn-secondary-text: var(--color-dark);
-
-	--color-btn-outline: transparent;
-	--color-btn-outline-border: var(--color-purple);
-	--color-btn-outline-text: var(--color-purple);
-
-	--color-btn-ghost-text: var(--color-pink);
+	/* Status Colors */
+	--color-success: #16a34a;
+	--color-warning: #d97706;
+	--color-error: #dc2626;
+	--color-info: #2563eb;
 }
 
-/* ----------------------------------
-   Tailwind 4 Dynamic Theme Colors
-   (Used for bg-primary, text-primary)
----------------------------------- */
-@theme {
-	--color-primary: var(--primary);
-	--color-secondary: var(--secondary);
-	--color-background: var(--background);
-	--color-foreground: var(--foreground);
-}
-
-/* ----------------------------------
-   Light Mode (Default)
----------------------------------- */
-:root {
-	/* YOUR background/text vars */
-	--bg-primary: #ffffff;
-	--bg-secondary: var(--color-light);
-
-	--text-primary: #000000;
-	--text-secondary: var(--color-dark);
-
-	/* NEW tailwind-theme vars */
-	--primary: #000000; /* text-primary */
-	--secondary: #3a3a3a; /* text-secondary */
-	--background: #ffffff; /* bg-background */
-	--foreground: #000000; /* text-foreground */
-}
-
-/* ----------------------------------
-   Dark Mode
----------------------------------- */
+/* Dark theme - only override when .dark class is present */
 .dark {
-	/* Your existing UI vars */
-	--bg-primary: var(--color-dark);
-	--bg-secondary: #3a3a3a;
-
-	--text-primary: #ffffff;
-	--text-secondary: var(--color-light);
-
-	/* Button overrides */
-	--color-btn-primary-text: var(--color-light);
-	--color-btn-secondary-text: var(--color-light);
-	--color-btn-outline-text: var(--color-light);
-	--color-btn-outline-border: var(--color-light);
-	--color-btn-ghost-text: var(--color-light);
-
-	/* Tailwind theme vars */
-	--primary: #ffffff;
-	--secondary: #e4e4e4;
-	--background: #0d0d0d;
-	--foreground: #e4e4e4;
+	--color-background: #020618;
+	--color-surface: #0f172b;
+	--color-border: #1d293d;
+	--color-text: #90a1b9;
+	--color-primary: #9810fa;
+	--color-secondary: #e60076;
+	--color-text-bright: #ffffff;
+	--color-text-muted: #64748b;
+	--color-surface-hover: #1a2537;
+	--color-success: #22c55e;
+	--color-warning: #f59e0b;
+	--color-error: #ef4444;
+	--color-info: #3b82f6;
 }
 
 button:active {
 	transform: scale(0.95);
 	transition: all 300ms ease-in-out;
+}
+
+@layer utilities {
+	@keyframes wave-animation {
+		0% {
+			transform: rotate(0deg);
+		}
+		15% {
+			transform: rotate(14deg);
+		}
+		30% {
+			transform: rotate(-8deg);
+		}
+		40% {
+			transform: rotate(14deg);
+		}
+		50% {
+			transform: rotate(-4deg);
+		}
+		60% {
+			transform: rotate(10deg);
+		}
+		70% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(0deg);
+		}
+	}
+
+	.wave {
+		animation: wave-animation 2.5s infinite;
+		transform-origin: 70% 70%;
+		display: inline-block;
+	}
 }
