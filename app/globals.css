@@ -31,7 +31,6 @@
 	--color-info: #2563eb;
 }
 
-/* Dark theme - only override when .dark class is present */
 .dark {
 	--color-background: #020618;
 	--color-surface: #0f172b;
@@ -46,11 +45,6 @@
 	--color-warning: #f59e0b;
 	--color-error: #ef4444;
 	--color-info: #3b82f6;
-}
-
-button:active {
-	transform: scale(0.95);
-	transition: all 300ms ease-in-out;
 }
 
 @layer utilities {
@@ -85,5 +79,16 @@ button:active {
 		animation: wave-animation 2.5s infinite;
 		transform-origin: 70% 70%;
 		display: inline-block;
+	}
+}
+
+@layer base {
+	input:-webkit-autofill,
+	textarea:-webkit-autofill,
+	select:-webkit-autofill {
+		-webkit-box-shadow: 0 0 0px 1000px inset var(--color-surface) !important;
+		box-shadow: 0 0 0px 1000px inset var(--color-surface) !important;
+		-webkit-text-fill-color: var(--color-text-bright) !important;
+		transition: background-color 5000s ease-in-out 0s;
 	}
 }

@@ -1,4 +1,6 @@
-type ButtonVariants = 'primary' | 'secondary' | 'outline' | 'ghost';
+import { type LucideIcon } from 'lucide-react';
+
+type ButtonVariants = 'primary' | 'secondary' | 'outline';
 type ButtonSizes = 'sm' | 'md' | 'lg';
 type ButtonType = 'button' | 'submit';
 
@@ -8,15 +10,15 @@ interface ButtonProps {
 	type?: ButtonType;
 	className?: string;
 	disabled?: boolean;
-	children: React.ReactNode;
+	name?: string;
+	icon?: LucideIcon;
+	onClick?: () => void;
 }
 
 const variantClasses: Record<ButtonVariants, string> = {
-	primary: 'bg-btn-primary text-btn-primary-text',
-	secondary: 'bg-btn-secondary text-btn-secondary-text',
-	outline:
-		'bg-btn-outline text-btn-outline-text border border-btn-outline-border',
-	ghost: 'bg-transparent text-btn-ghost-text',
+	primary: 'bg-primary text-text-bright',
+	secondary: 'bg-surface text-text-text-bright',
+	outline: 'bg-transparent border border-border text-text-text-bright',
 };
 
 const sizeClasses: Record<ButtonSizes, string> = {
@@ -31,21 +33,25 @@ const Button = ({
 	type = 'button',
 	className,
 	disabled = false,
-	children,
+	name,
+	icon: Icon,
+	onClick,
 }: ButtonProps) => {
 	return (
 		<button
 			type={type}
 			disabled={disabled}
-			className={`font-medium rounded transition-all duration-200 ${
+			className={`flex items-center justify-center gap-2 font-medium rounded active:scale-95 transition-all duration-100 ${
 				sizeClasses[size]
 			} ${variantClasses[variant]} ${
 				disabled
 					? 'opacity-50 cursor-not-allowed'
 					: 'hover:opacity-90 cursor-pointer'
 			} ${className}`}
+			onClick={onClick}
 		>
-			{children}
+			{Icon && <Icon />}
+			{name}
 		</button>
 	);
 };

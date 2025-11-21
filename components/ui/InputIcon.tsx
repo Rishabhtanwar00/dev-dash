@@ -24,14 +24,14 @@ const InputIcon = ({
 	onChange,
 }: InputIconProps) => {
 	return (
-		<div className='relative border border-border bg-surface text-text rounded-md pl-8'>
+		<div className='relative border border-border bg-surface text-text-bright rounded-md pl-9'>
 			<Icon className='absolute left-3 top-1/2 -translate-y-1/2' />
 			<input
 				type={type}
 				name={id}
 				id={id}
 				placeholder={placeholder}
-				className={`px-3 py-1.5 outline-none border-none ${className}`}
+				className={`px-3 py-2 outline-none border-none ${className}`}
 				value={value}
 				required={required}
 				onChange={onChange}

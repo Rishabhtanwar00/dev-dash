@@ -33,9 +33,9 @@ const Sidebar = () => {
 	const pathname = usePathname();
 
 	return (
-		<aside className='min-h-screen w-20 md:w-[250px] flex flex-col items-center justify-start border-r border-border bg-surface text-text p-2 py-4 md:p-4'>
+		<aside className='min-h-screen w-20 md:w-[250px] flex flex-col items-center justify-start border-r border-border bg-surface text-text px-0 md:px-2 py-4 md:p-4'>
 			<div className='flex items-center gap-3'>
-				<div className='bg-linear-to-br from-purple-500 to-pink-600 p-2 rounded-lg text-text-bright'>
+				<div className='bg-linear-to-r from-pink-500 via-red-500 to-orange-500 p-2 rounded-lg text-text-bright'>
 					<Code2 size={25} className='text-white' />
 				</div>
 				<h1 className='hidden md:block text-2xl font-bold'>Dev Dash</h1>
@@ -47,7 +47,7 @@ const Sidebar = () => {
 						href={link.href}
 						className={`w-full flex items-center justify-center md:justify-start gap-3 px-4 py-3 md:py-3 tracking-wide ${
 							pathname === link.href
-								? 'bg-linear-to-r from-purple-500 to-pink-600 text-white font-medium rounded-lg'
+								? 'bg-linear-to-r from-pink-500 via-red-500 to-orange-500 text-white font-medium rounded-none md:rounded-lg'
 								: ''
 						}`}
 					>

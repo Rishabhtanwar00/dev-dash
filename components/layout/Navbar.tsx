@@ -46,7 +46,10 @@ const Navbar = () => {
 
 	return (
 		<nav className='h-[70px] w-full flex items-center justify-between px-5 border-b border-border bg-surface text-text'>
-			<button onClick={toogleSidebar} className='cursor-pointer'>
+			<button
+				onClick={toogleSidebar}
+				className='cursor-pointer active:scale-95 transition-transform duration-100'
+			>
 				<Menu size={24} />
 			</button>
 			<div className='flex gap-5'>
@@ -60,7 +63,7 @@ const Navbar = () => {
 				/>
 				<button
 					onClick={handletheme}
-					className={`cursor-pointer transition-transform duration-300 ${
+					className={`cursor-pointer transition-transform duration-100 active:scale-95 ${
 						isAnimating ? 'rotate-360 scale-110' : 'rotate-0 scale-100'
 					} hover:scale-110`}
 				>

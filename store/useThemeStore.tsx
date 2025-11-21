@@ -8,7 +8,7 @@ interface UiState {
 }
 
 const useThemeStore = create<UiState>((set) => ({
-	theme: '',
+	theme: 'dark',
 	showSidebar: true,
 	setTheme: (theme) => set(() => ({ theme })),
 	toogleSidebar: () => set((state) => ({ showSidebar: !state.showSidebar })),

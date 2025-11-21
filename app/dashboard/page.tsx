@@ -34,13 +34,14 @@ const page = () => {
 				{CARDS_DATA.map((card) => (
 					<div
 						key={card.id}
-						className={`border border-border rounded p-5 w-full min-w-[150px] lg:min-w-[250px] flex flex-col items-center justify-center gap-3 text-center text-white ${card.gradient} transition-all duration-300 ease-in-out`}
+						className={`border border-border rounded p-5 w-full min-w-[150px] lg:min-w-[250px] flex flex-col items-center justify-center gap-3 text-center text-text-bright bg-surface transition-all duration-300 ease-in-out`}
 					>
 						<p className='text-base md:text-xl'>{card.title}</p>
 						<p className='font-bold text-xl md:text-2xl'>{card.count}</p>
 					</div>
 				))}
 			</div>
+			
 		</div>
 	);
 };
