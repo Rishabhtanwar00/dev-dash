@@ -1,10 +1,5 @@
-import { Task } from '@/types/tasks';
+import { TaskListProps } from '@/types/tasks';
 import TaskCard from './TaskCard';
-
-interface TaskListProps {
-	tasks: Task[];
-	view: 'list' | 'grid';
-}
 
 const TaskList = ({ tasks, view }: TaskListProps) => {
 	return (

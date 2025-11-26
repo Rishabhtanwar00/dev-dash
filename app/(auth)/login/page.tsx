@@ -1,7 +1,6 @@
 'use client';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import InputIcon from '@/components/ui/InputIcon';
 import { Lock, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -26,7 +25,7 @@ const LoginPage = () => {
 			<div className='flex flex-col gap-5 items-center p-5 min-w-[300px] bg-surface text-text-bright rounded shadow'>
 				<h1 className='text-xl'>Login</h1>
 				<form className='flex flex-col gap-5 w-[400px]' onSubmit={handleSubmit}>
-					<InputIcon
+					<Input
 						icon={Mail}
 						id='email'
 						type='mail'
@@ -36,7 +35,7 @@ const LoginPage = () => {
 						className='w-full'
 						required={true}
 					/>
-					<InputIcon
+					<Input
 						icon={Lock}
 						id='password'
 						type='password'

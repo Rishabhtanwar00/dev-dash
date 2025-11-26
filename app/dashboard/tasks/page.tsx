@@ -5,6 +5,7 @@ import { Grid, List, Plus } from 'lucide-react';
 import TaskList from './components/TaskList';
 import { Task } from '@/types/tasks';
 import { useEffect, useState } from 'react';
+import { redirect } from 'next/navigation';
 
 const TASKS: Task[] = [
 	{
@@ -113,10 +114,19 @@ const TasksPage = () => {
 		handleFilterChange(priority);
 	}, [priority, sort]);
 
+	const handleAddTask = () => {
+		redirect('/dashboard/tasks/create');
+	};
+
 	return (
 		<div>
 			<div className='flex justify-between items-center mb-4'>
-				<Button name='Add Task' icon={Plus} className='w-[150px]'></Button>
+				<Button
+					name='Add Task'
+					icon={Plus}
+					className='w-[150px]'
+					onClick={handleAddTask}
+				/>
 				<div className='flex gap-2'>
 					<Dropdown
 						name='Priority'

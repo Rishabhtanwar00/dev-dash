@@ -1,40 +1,46 @@
-type InputTypes = 'text' | 'mail' | 'password';
+import { InputProps } from '@/types/ui';
 
-interface InputProps {
-	label?: string;
-	id?: string;
-	type?: InputTypes;
-	placeholder?: string;
-	value?: string;
-	className?: string;
-	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-const Input = ({
+const Input
+ = ({
 	label,
-	id,
+	icon: Icon,
 	type = 'text',
+	id,
 	placeholder,
 	value,
 	className,
+	required = false,
 	onChange,
+	onKeyDown,
 }: InputProps) => {
 	return (
-		<div className='flex flex-col gap-2'>
-			<label htmlFor={id} className='text-[12px]'>
-				{label}
-			</label>
-			<input
-				id={id}
-				name={id}
-				type={type}
-				placeholder={placeholder}
-				value={value}
-				className={`w-full text-sm border-2 px-3 py-1.5  placeholder:text-secondary/70 bg-background text-primary font-poppins focus:outline-none focus:shadow focus:shadow-purple transition ${className} `}
-				onChange={onChange}
-			/>
+		<div className='w-full'>
+			{label && (
+				<label htmlFor={id} className='block mb-2 font-medium'>
+					{label}
+				</label>
+			)}
+			<div
+				className={`relative border border-border bg-surface text-text-bright rounded-md w-full ${
+					Icon && 'pl-9'
+				}`}
+			>
+				{Icon && <Icon className='absolute left-3 top-1/2 -translate-y-1/2' />}
+				<input
+					type={type}
+					name={id}
+					id={id}
+					placeholder={placeholder}
+					className={`w-full px-3 py-2 outline-none border-none ${className}`}
+					value={value}
+					required={required}
+					onChange={onChange}
+					onKeyDown={onKeyDown}
+				/>
+			</div>
 		</div>
 	);
 };
 
-export default Input;
+export default Input
+;

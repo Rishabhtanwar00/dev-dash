@@ -2,8 +2,8 @@
 import useThemeStore from '@/store/useThemeStore';
 import { Menu, Moon, Search, Sun } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import InputIcon from '../ui/InputIcon';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import Input from '../ui/Input';
 const Navbar = () => {
 	const { theme, setTheme, toogleSidebar } = useThemeStore();
 	const [isAnimating, setIsAnimating] = useState(false);
@@ -53,7 +53,7 @@ const Navbar = () => {
 				<Menu size={24} />
 			</button>
 			<div className='flex gap-5'>
-				<InputIcon
+				<Input
 					icon={Search}
 					id='search'
 					placeholder='Search tasks,notes...'
